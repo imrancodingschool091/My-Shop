@@ -50,7 +50,7 @@ function Checkout() {
   // 💳 Handle Razorpay payment
   const handlePayment = async () => {
     try {
-      const { data } = await axios.post("http://localhost:5000/api/payment/create-order", {
+      const { data } = await axios.post("https://my-shop-1-p8zw.onrender.com/api/payment/create-order", {
         amount: totalPrice,
       });
 
@@ -74,7 +74,7 @@ function Checkout() {
         theme: { color: "#2563eb" },
         handler: async (response) => {
           // Verify payment
-          const verifyRes = await axios.post("http://localhost:5000/api/payment/verify-payment", {
+          const verifyRes = await axios.post("https://my-shop-1-p8zw.onrender.com/api/payment/verify-payment", {
             razorpay_order_id: response.razorpay_order_id,
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_signature: response.razorpay_signature,
